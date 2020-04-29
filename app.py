@@ -43,14 +43,14 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     r = "Sorry, I don't what you are talking about. "
-    if msg in ["hi", "Hi"]
-    r = "Hello"
-    elif msg == "Did you have a meal"
-    r = "No"
-    elif == "who are you"
-    r = "Rot"
-    elif "book" in msg
-    r = " how many people, what time"
+    if msg in ["hi", "Hi"]:
+        r = "Hello"
+    elif msg == "Did you have a meal":
+        r = "No"
+    elif == "who are you":
+        r = "Rot"
+    elif "book" in msg:
+        r = " how many people, what time"
     
     line_bot_api.reply_message(
         event.reply_token,
