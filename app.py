@@ -54,13 +54,14 @@ def handle_message(event):
             audio_message)
         return
 
-    if "hi" and "Hi" in msg:
+    if "hi" or "Hi" in msg:
         r = "Hello"
     elif msg == "Did you have a meal":
         r = "No"
     elif "book" in msg:
         r = " how many people, what time"
-    
+    elif msg == who:
+        r = " Robt"
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=r))
