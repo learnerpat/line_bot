@@ -43,6 +43,7 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     r = "Sorry, I don't what you are talking about. "
+
     if "voice" in msg:
         audio_message = AudioSendMessage(
             original_content_url='https://example.com/original.m4a',
@@ -50,10 +51,8 @@ def handle_message(event):
         )
         line_bot_api.reply_message(
             event.reply_token,
-            AudioSendMessage)
+            audio_message)
         return
-
-
 
     if msg in ["hi", "Hi"]:
         r = "Hello"
