@@ -54,7 +54,7 @@ def handle_message(event):
             audio_message)
         return
 
-    if "hi" or "Hi" in msg:
+    if "hi", "Hi" in msg:
         r = "Hello"
     elif msg == "Did you have a meal":
         r = "No"
