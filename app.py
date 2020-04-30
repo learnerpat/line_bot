@@ -11,7 +11,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, AudioSendMessage
 )
 
 app = Flask(__name__)
@@ -43,6 +43,17 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     r = "Sorry, I don't what you are talking about. "
+    if "voice" in msg:
+        audio_message = AudioSendMessage(
+            original_content_url='https://example.com/original.m4a',
+            duration=240000
+        )
+        line_bot_api.reply_message(
+            event.reply_token,
+            AudioSendMessage)
+        return
+
+
 
     if msg in ["hi", "Hi"]:
         r = "Hello"
@@ -54,6 +65,8 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=r))
+
+
 
 
 if __name__ == "__main__":
