@@ -60,7 +60,7 @@ def handle_message(event):
         r = "No"
     elif "book" in msg:
         r = " how many people, what time"
-    elif msg == who:
+    elif "who" in msg:
         r = " Robt"
     line_bot_api.reply_message(
         event.reply_token,
